@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Home() {
   const researchSteps = [
@@ -8,7 +9,8 @@ export default function Home() {
       icon: "🎯",
       color: "bg-red-500 hover:bg-red-600",
       lightColor: "bg-red-50 border-red-200",
-      textColor: "text-red-700"
+      textColor: "text-red-700",
+      href: "/verantwoorden"
     },
     {
       title: "Verkennen", 
@@ -16,7 +18,8 @@ export default function Home() {
       icon: "🔍",
       color: "bg-blue-500 hover:bg-blue-600",
       lightColor: "bg-blue-50 border-blue-200",
-      textColor: "text-blue-700"
+      textColor: "text-blue-700",
+      href: "/verkennen"
     },
     {
       title: "Verdiepen",
@@ -24,7 +27,8 @@ export default function Home() {
       icon: "⛏️",
       color: "bg-green-500 hover:bg-green-600", 
       lightColor: "bg-green-50 border-green-200",
-      textColor: "text-green-700"
+      textColor: "text-green-700",
+      href: "/verdiepen"
     },
     {
       title: "Verbeelden",
@@ -32,7 +36,8 @@ export default function Home() {
       icon: "🎨",
       color: "bg-purple-500 hover:bg-purple-600",
       lightColor: "bg-purple-50 border-purple-200", 
-      textColor: "text-purple-700"
+      textColor: "text-purple-700",
+      href: "/verbeelden"
     },
     {
       title: "Verbinden",
@@ -40,7 +45,8 @@ export default function Home() {
       icon: "🔗",
       color: "bg-orange-500 hover:bg-orange-600",
       lightColor: "bg-orange-50 border-orange-200",
-      textColor: "text-orange-700"
+      textColor: "text-orange-700",
+      href: "/verbinden"
     },
     {
       title: "Vormgeven",
@@ -48,7 +54,8 @@ export default function Home() {
       icon: "🏗️", 
       color: "bg-indigo-500 hover:bg-indigo-600",
       lightColor: "bg-indigo-50 border-indigo-200",
-      textColor: "text-indigo-700"
+      textColor: "text-indigo-700",
+      href: "/vormgeven"
     }
   ]
 
@@ -84,9 +91,10 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {researchSteps.map((step, index) => (
-              <div
+              <Link
                 key={step.title}
-                className={`${step.lightColor} border-2 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:scale-105 cursor-pointer group relative overflow-hidden`}
+                href={step.href}
+                className={`${step.lightColor} border-2 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:scale-105 cursor-pointer group relative overflow-hidden block`}
               >
                 {/* Step Number */}
                 <div className="flex items-center justify-between mb-6">
@@ -110,9 +118,9 @@ export default function Home() {
 
                   {/* Action Button */}
                   <div className="pt-4">
-                    <button className={`w-full ${step.color} text-white py-3 px-6 rounded-xl font-semibold transition-all duration-200 hover:shadow-lg transform hover:-translate-y-1`}>
+                    <div className={`w-full ${step.color} text-white py-3 px-6 rounded-xl font-semibold transition-all duration-200 hover:shadow-lg transform hover:-translate-y-1 text-center`}>
                       Start {step.title}
-                    </button>
+                    </div>
                   </div>
                 </div>
 
@@ -122,7 +130,7 @@ export default function Home() {
                     <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
                   </svg>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
