@@ -86,7 +86,7 @@ export default function Home() {
             {researchSteps.map((step, index) => (
               <div
                 key={step.title}
-                className={`${step.lightColor} border-2 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:scale-105 cursor-pointer group`}
+                className={`${step.lightColor} border-2 rounded-2xl p-8 transition-all duration-300 hover:shadow-xl hover:scale-105 cursor-pointer group relative overflow-hidden`}
               >
                 {/* Step Number */}
                 <div className="flex items-center justify-between mb-6">
